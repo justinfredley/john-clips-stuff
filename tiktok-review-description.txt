@@ -7,14 +7,14 @@ in the TikTok Developer Portal -> App Review tab.
 SUBMIT THIS TEXT IN THE REVIEW DESCRIPTION BOX:
 ================================================================================
 
-App Name: Clip Uploader
+App Name: John Clips Stuff
 Website: https://justinfredley.github.io/clip-uploader-site/
 
 === WHAT THE APP DOES ===
 
-Clip Uploader is a desktop application that runs entirely on the user's local machine. It takes long-form video files (e.g., TV episodes, movies, podcasts, creator content) and automatically splits them into short vertical clips (9:16 aspect ratio, 60 seconds or less) optimized for social media platforms. Each clip is captioned using AI speech transcription and rendered with a blurred background fill. Users review the clips locally and can then publish them to TikTok, YouTube Shorts, and Instagram Reels through the respective official APIs.
+John Clips Stuff is a desktop application that runs entirely on the user's local machine. It takes long-form video files (e.g., TV episodes, podcasts, creator content) and automatically splits them into short vertical clips (9:16 aspect ratio, 60 seconds or less) optimized for social media platforms. Each clip is captioned using AI speech transcription and rendered with a blurred background fill. Users review the clips locally and can then publish them to TikTok, YouTube Shorts, and Instagram Reels through the respective official APIs.
 
-The app is designed for content creators, editors, and channel operators who need to repurpose long-form content into short-form social media posts efficiently. All video processing (clipping, reframing, transcription, caption rendering) happens on the user's own machine. No user content is ever sent to our servers.
+The app is designed for content creators who need to repurpose long-form content into short-form social media posts efficiently. All video processing (clipping, reframing, transcription, caption rendering) happens on the user's own machine. No user content is ever sent to our servers.
 
 === REQUESTED SCOPES AND DATA USAGE ===
 
@@ -29,13 +29,13 @@ The app is designed for content creators, editors, and channel operators who nee
    - Why it is needed: Required by TikTok's API to transfer the video file from the user's local machine to TikTok for processing and potential publication. Without this scope, no video can be posted.
 
 3. video.publish
-   - What it accesses: The ability to post/status-set a previously uploaded video on the authenticated user's TikTok account.
+   - What it accesses: The ability to publish a previously uploaded video on the authenticated user's TikTok account.
    - How it is used within the app: After a video file has been uploaded via the video.upload scope, the app uses video.publish to set the video's privacy status (public) and attach the user-configured caption, hashtags, and description. This is the final step that makes the clip visible on the user's TikTok profile.
    - Why it is needed: Without this scope, uploaded videos would remain as drafts with no way to make them publicly visible. This is the essential publishing step.
 
 === NO OTHER DATA ACCESSED ===
 
-Clip Uploader does NOT request or access:
+John Clips Stuff does NOT request or access:
 - User's video view history
 - User's followers/following lists
 - User's direct messages
