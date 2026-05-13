@@ -1,0 +1,54 @@
+TIKTOK APP REVIEW SUBMISSION
+=============================
+Copy and paste the section below into the "Review Description" box
+in the TikTok Developer Portal -> App Review tab.
+
+================================================================================
+SUBMIT THIS TEXT IN THE REVIEW DESCRIPTION BOX:
+================================================================================
+
+App Name: Clip Uploader
+Website: https://justinfredley.github.io/clip-uploader-site/
+
+=== WHAT THE APP DOES ===
+
+Clip Uploader is a desktop application that runs entirely on the user's local machine. It takes long-form video files (e.g., TV episodes, movies, podcasts, creator content) and automatically splits them into short vertical clips (9:16 aspect ratio, 60 seconds or less) optimized for social media platforms. Each clip is captioned using AI speech transcription and rendered with a blurred background fill. Users review the clips locally and can then publish them to TikTok, YouTube Shorts, and Instagram Reels through the respective official APIs.
+
+The app is designed for content creators, editors, and channel operators who need to repurpose long-form content into short-form social media posts efficiently. All video processing (clipping, reframing, transcription, caption rendering) happens on the user's own machine. No user content is ever sent to our servers.
+
+=== REQUESTED SCOPES AND DATA USAGE ===
+
+1. user.info.basic
+   - What it accesses: Basic public profile information about the authenticated TikTok user (username, avatar URL, display name).
+   - How it is used within the app: This scope is used solely to verify that the correct TikTok account is authenticated before publishing. The app displays the authenticated username in the UI so the user can confirm they are publishing to the intended account. This data is fetched once at login, stored only in the app's local OAuth token cache, and is never transmitted to any server or third party.
+   - Why it is needed: Prevents accidental publishing to the wrong TikTok account. Without this scope, the app cannot confirm account identity.
+
+2. video.upload
+   - What it accesses: The ability to upload video files to TikTok's servers.
+   - How it is used within the app: After the user generates clips locally and reviews them, they select clips to publish. The app uploads the selected MP4 video file (vertical, 9:16, typically 60 seconds or less) directly from the user's machine to TikTok's server using this scope. The upload happens in a single session and the local file remains on the user's machine afterward.
+   - Why it is needed: Required by TikTok's API to transfer the video file from the user's local machine to TikTok for processing and potential publication. Without this scope, no video can be posted.
+
+3. video.publish
+   - What it accesses: The ability to post/status-set a previously uploaded video on the authenticated user's TikTok account.
+   - How it is used within the app: After a video file has been uploaded via the video.upload scope, the app uses video.publish to set the video's privacy status (public) and attach the user-configured caption, hashtags, and description. This is the final step that makes the clip visible on the user's TikTok profile.
+   - Why it is needed: Without this scope, uploaded videos would remain as drafts with no way to make them publicly visible. This is the essential publishing step.
+
+=== NO OTHER DATA ACCESSED ===
+
+Clip Uploader does NOT request or access:
+- User's video view history
+- User's followers/following lists
+- User's direct messages
+- User's email address or phone number
+- Any ability to read/modify existing videos on the user's account
+- Any ability to comment, like, or interact with other users' content
+
+=== LOCAL PROCESSING NOTE ===
+
+All video clipping, AI transcription, caption rendering, and format conversion is performed locally on the user's machine using open-source tools (FFmpeg, Whisper). The app has no cloud backend or server infrastructure. The only network requests made by the app are:
+1. OAuth authentication with TikTok
+2. Uploading user-selected video files to TikTok's API endpoint
+3. Checking the upload status
+
+No analytics, crash reports, usage statistics, or any other data is collected or transmitted.
+================================================================================
